@@ -2,12 +2,25 @@
 *.slo
 *.lo
 *.o
+*.obj
+#Logs
+*.log
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
+*.lib
+
+#Visual Studio Projects
+*.vcxproj
+*.vcproj
+*.sln
+*.sdf
+#Build results
+build/*
