@@ -29,8 +29,23 @@ cd divwork
 mkdir build && cd build
 cmake ..
 make
-make install
 ```
 
 To enable and disable DivWork components try hacking the CMakeLists.txt or via CMake GUI
 
+Installing
+========
+
+To install your custom DivWork build you need to run:
+
+``` sh
+make install
+```
+
+or 
+
+``` sh
+cpack -G <package>
+```
+
+where package can be DEB, RPM, TGZ, ZIP or NSIS.
