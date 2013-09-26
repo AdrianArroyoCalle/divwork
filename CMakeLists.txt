@@ -12,11 +12,15 @@ SET(DIVEL_CALENDAR_SRC
 "divel-calendar/Divel Calendar.cpp"
 "divel-calendar/StdAfx.cpp"
 )
+SET(AGENDA_CORREOS_SRC
+"agenda-correos/correos.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
         "Library example implementation" ON)
 option (BUILD_DIVELCALENDAR "Build Divel Calendar" ON)
+option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -42,6 +46,11 @@ if(BUILD_DIVELCALENDAR)
 add_executable(Divel_Calendar ${DIVEL_CALENDAR_SRC})
 target_link_libraries(Divel_Calendar ${COMMON_LIBS})
 install(TARGETS Divel_Calendar DESTINATION bin)
+endif()
+if(BUILD_AGENDACORREOS)
+add_executable(AgendaCorreos ${AGENDA_CORREOS_SRC})
+target_link_libraries(AgendaCorreos ${COMMON_LIBS})
+install(TARGETS AgendaCorreos DESTINATION bin)
 endif()
 
 # build a CPack driven installer package
