@@ -15,12 +15,16 @@ SET(DIVEL_CALENDAR_SRC
 SET(AGENDA_CORREOS_SRC
 "agenda-correos/correos.cpp"
 )
+SET(DIV_VNC_SRC
+"div-vnc/app.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
         "Library example implementation" ON)
 option (BUILD_DIVELCALENDAR "Build Divel Calendar" ON)
 option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
+option (BUILD_DIV_VNC "Build DivVNC" OFF)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -51,6 +55,12 @@ if(BUILD_AGENDACORREOS)
 add_executable(AgendaCorreos ${AGENDA_CORREOS_SRC})
 target_link_libraries(AgendaCorreos ${COMMON_LIBS})
 install(TARGETS AgendaCorreos DESTINATION bin)
+endif()
+if(BUILD_DIV_VNC)
+find_package(LIBVNCCLIENT REQUIRED)
+add_executable(DivVnc ${DIV_VNC_SRC})
+target_link_libraries(DivVnc ${COMMON_LIBS} ${LIBVNCCLIENT_LIBRARY})
+install(TARGETS DivVnc DESTINATION bin)
 endif()
 
 # build a CPack driven installer package
