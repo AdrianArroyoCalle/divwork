@@ -18,13 +18,18 @@ SET(AGENDA_CORREOS_SRC
 SET(DIV_VNC_SRC
 "div-vnc/app.cpp"
 )
+SET(DIVEL_WRITE_SRC
+"divel-write/DivelWriteFrm.cpp"
+"divel-write/DivelWriteApp.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
         "Library example implementation" ON)
 option (BUILD_DIVELCALENDAR "Build Divel Calendar" ON)
 option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
-option (BUILD_DIV_VNC "Build DivVNC" OFF)
+option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
+option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -63,6 +68,11 @@ target_link_libraries(DivVnc ${COMMON_LIBS} ${LIBVNCCLIENT_LIBRARY})
 install(TARGETS DivVnc DESTINATION bin)
 endif()
 
+if(BUILD_DIVEL_WRITE)
+add_executable(DivelWrite ${DIVEL_WRITE_SRC})
+target_link_libraries(DivelWrite ${COMMON_LIBS})
+install(TARGETS DivelWrite DESTINATION bin)
+endif()
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
 set (CPACK_RESOURCE_FILE_LICENSE  
