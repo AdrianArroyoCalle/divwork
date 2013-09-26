@@ -17,3 +17,20 @@ DivWork comes with these programs:
 * DivTasks
 * Divel Write
 * Divel Quiz
+
+Compiling
+=========
+
+To compile DivWork run the following commands:
+
+``` sh
+git clone https://github.com/AdrianArroyoCalle/divwork.git
+cd divwork
+mkdir build && cd build
+cmake ..
+make
+make install
+```
+
+To enable and disable DivWork components try hacking the CMakeLists.txt or via CMake GUI
+
