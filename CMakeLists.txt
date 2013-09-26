@@ -24,7 +24,7 @@ if (USE_LIBRANDOM)
 	set(COMMON_LIBS ${COMMON_LIBS} librandom)
 endif()
 #Get required libraries
-find_package(wxWidgets COMPONENTS core base )#REQUIRED)
+find_package(wxWidgets COMPONENTS core base aui adv html net gl)#REQUIRED)
 include( "${wxWidgets_USE_FILE}" )
 SET(COMMON_LIBS ${COMMON_LIBS} ${wxWidgets_LIBRARIES})
 # configure a header file to pass some of the CMake settings
@@ -50,4 +50,8 @@ set (CPACK_RESOURCE_FILE_LICENSE
      "${CMAKE_CURRENT_SOURCE_DIR}/divel-calendar/License.txt")
 set (CPACK_PACKAGE_VERSION_MAJOR "${DIVWORK_VERSION_MAJOR}")
 set (CPACK_PACKAGE_VERSION_MINOR "${DIVWORK_VERSION_MINOR}")
+set (CPACK_PACKAGE_NAME "divwork")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.3.1-6), libwxgtk2.8-dev")
+SET (CPACK_PACKAGE_CONTACT "adrian.arroyocalle@gmail.com")
+SET (CPACK_PACKAGE_DESCRIPTION_SUMMARY "DivWork is a utilitary suite free for personal use and little bussiness")
 include (CPack)
