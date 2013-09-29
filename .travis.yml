@@ -4,4 +4,4 @@ compiler:
   - clang
 # Change this to your needs
 script: cmake && make
-install: wxgtk2.8-dev
+install: sudo apt-get wxgtk2.8-dev
