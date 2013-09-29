@@ -1,0 +1,13 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+# Change this to your needs
+script: cmake && make
+install: wxgtk2.8-dev
+notifications:
+  recipients:
+    - adrian.arroyocalle@gmail.com
+  email:
+    on_success: change
+    on_failure: always
