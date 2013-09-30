@@ -22,6 +22,10 @@ SET(DIVEL_WRITE_SRC
 "divel-write/DivelWriteFrm.cpp"
 "divel-write/DivelWriteApp.cpp"
 )
+SET(DIV_VERIFY_HTTP
+"div-verify-http/app.cpp"
+"div-verify-http/frame.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
@@ -30,6 +34,7 @@ option (BUILD_DIVELCALENDAR "Build Divel Calendar" ON)
 option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
 option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
 option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
+option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -58,12 +63,16 @@ if(BUILD_DIVELCALENDAR)
 	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/divel-calendar.desktop")
 	SET(SCALABLE_FILES ${SCALABLE_FILES}) #"freedesktop/divel-calendar.svg"
 	SET(ICON64_FILES ${ICON64_FILES} "freedesktop/divel-calendar.png")
+	SET(EXE_TARGETS ${EXE_TARGETS} Divel_Calendar)
+	SET(EXE_DESC ${EXE_DESC} "Divel Calendar")
 endif()
 if(BUILD_AGENDACORREOS)
 	add_executable(AgendaCorreos ${AGENDA_CORREOS_SRC})
 	target_link_libraries(AgendaCorreos ${COMMON_LIBS})
 	install(TARGETS AgendaCorreos DESTINATION bin)
 	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/agenda-correos.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} AgendaCorreos)
+	SET(EXE_DESC ${EXE_DESC} "Agenda de Correos")
 endif()
 if(BUILD_DIV_VNC)
 	find_package(LIBVNCCLIENT REQUIRED)
@@ -77,6 +86,15 @@ if(BUILD_DIVEL_WRITE)
 	target_link_libraries(DivelWrite ${COMMON_LIBS})
 	install(TARGETS DivelWrite DESTINATION bin)
 	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/divel-write.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} DivelWrite)
+	SET(EXE_DESC ${EXE_DESC} "Divel Write")
+endif()
+if(BUILD_DIV_VERIFY_HTTP)
+	add_executable(DivVerifyHTTP ${DIV_VERIFY_HTTP})
+	target_link_libraries(DivVerifyHTTP ${COMMON_LIBS})
+	install(TARGETS DivVerifyHTTP DESTINATION bin)
+	SET(EXE_TARGETS ${EXE_TARGETS} DivVerifyHTTP)
+	SET(EXE_DESC ${EXE_DESC} "DivVerifyHTTP")
 endif()
 #Desktop shourtcouts
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -87,6 +105,13 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	INSTALL (PROGRAMS ${DESKTOP_FILES} DESTINATION ${DESKTOP_DIR})
 	INSTALL (FILES ${SCALABLE_FILES} DESTINATION ${SCALABLE_DIR})
 	INSTALL (FILES ${ICON64_FILES} DESTINATION ${ICON64_DIR})
+endif()
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "${CMAKE_PROJECT_NAME}-${DIVWORK_VERSION_MAJOR}")
+	set(CPACK_NSIS_MENU_LINKS "http://github.com/AdrianArroyoCalle/divwork" "Homepage for DivWork")
+	set(CPACK_NSIS_URL_INFO_ABOUT "http://github.com/AdrianArroyoCalle/divwork")
+	set(CPACK_NSIS_HELP_LINK "http://github.com/AdrianArroyoCalle/divwork")
+	set(CPACK_PACKAGE_EXECUTABLES "${EXE_TARGETS}" "${EXE_DESC}")
 endif()
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
