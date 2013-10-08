@@ -13,6 +13,7 @@ public:
 private:
 	void Check(wxCommandEvent&);
 	wxTextCtrl* results;
+	wxTextCtrl* server;
 
 };
 
