@@ -45,7 +45,7 @@ void MainFrame::Check(wxCommandEvent& event)
 	while (!get.Connect(server->GetValue().BeforeFirst('/')))  // only the server, no pages here yet ...
     wxSleep(5);
 
-	results->AppendText(wxString::Format(wxT("\n[INFO] Server host: %s",server->GetValue().BeforeFirst('/'))));
+	results->AppendText(wxT("\n[INFO] Server host: ")+server->GetValue().BeforeFirst('/'));
 
 	if(server->GetValue().AfterFirst('/').Cmp("")==0)
 	{
@@ -53,7 +53,7 @@ void MainFrame::Check(wxCommandEvent& event)
 		results->AppendText(wxT("\n[INFO] Server page: /"));
 	}else{
 		wxInputStream *httpStream = get.GetInputStream(server->GetValue().AfterFirst('/'));
-		results->AppendText(wxString::Format(wxT("\n[INFO] Server page: %s",server->GetValue().AfterFirst('/'))));
+		results->AppendText(wxT("\n[INFO] Server page: ")+server->GetValue().AfterFirst('/'));
 	}
 
 	results->SetDefaultStyle(wxTextAttr(*wxGREEN));
