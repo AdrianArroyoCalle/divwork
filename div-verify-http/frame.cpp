@@ -47,7 +47,7 @@ void MainFrame::Check(wxCommandEvent& event)
 
 	results->AppendText(wxT("\n[INFO] Server host: ")+server->GetValue().BeforeFirst('/'));
 
-	if(server->GetValue().AfterFirst('/').Cmp("")==0)
+	if(server->GetValue().AfterFirst('/').Cmp(wxT(""))==0)
 	{
 		wxInputStream *httpStream = get.GetInputStream(wxT("/"));
 		results->AppendText(wxT("\n[INFO] Server page: /"));
@@ -57,12 +57,12 @@ void MainFrame::Check(wxCommandEvent& event)
 	}
 
 	results->SetDefaultStyle(wxTextAttr(*wxGREEN));
-	results->AppendText(wxString::Format("\n[Response] HTTP Code: %d",get.GetResponse()));
-	results->AppendText(wxString::Format("\n[Response] X-Powered-By: %s",get.GetHeader(wxT("X-Powered-By"))));
-	results->AppendText(wxString::Format("\n[Response] Access-Control-Allow-Origin: %s",get.GetHeader(wxT("Access-Control-Allow-Origin"))));
-	results->AppendText(wxString::Format("\n[Response] Date: %s",get.GetHeader(wxT("Date"))));
-	results->AppendText(wxString::Format("\n[Response] Content-Type: %s",get.GetHeader(wxT("Content-Type"))));
-	results->AppendText(wxString::Format("\n[Response] Location: %s",get.GetHeader(wxT("Location"))));
+	results->AppendText(wxString::Format(wxT("\n[Response] HTTP Code: %d"),get.GetResponse()));
+	results->AppendText(wxT("\n[Response] X-Powered-By: ")+get.GetHeader(wxT("X-Powered-By")));
+	results->AppendText(wxT("\n[Response] Access-Control-Allow-Origin: ")+get.GetHeader(wxT("Access-Control-Allow-Origin")));
+	results->AppendText(wxT("\n[Response] Date:")+get.GetHeader(wxT("Date")));
+	results->AppendText(wxT("\n[Response] Content-Type: ")+get.GetHeader(wxT("Content-Type")));
+	results->AppendText(wxT("\n[Response] Location: ")+get.GetHeader(wxT("Location")));
 
 	switch(get.GetError())
 	{
