@@ -68,31 +68,31 @@ void MainFrame::Check(wxCommandEvent& event)
 	{
 	case wxPROTO_NOERR: {
 							results->SetDefaultStyle(wxTextAttr(*wxGREEN));
-							results->AppendText("\n[OK] All almost good");
+							results->AppendText(wxT("\n[OK] All almost good"));
 						}break;
 	case wxPROTO_NETERR: {
 							results->SetDefaultStyle(wxTextAttr(*wxRED));
-							results->AppendText("\n[ERROR] Network error");
+							results->AppendText(wxT("\n[ERROR] Network error"));
 						 }break;
 	case wxPROTO_PROTERR: {
 							results->SetDefaultStyle(wxTextAttr(*wxRED));
-							results->AppendText("\n[ERROR] Negotiation error");
+							results->AppendText(wxT("\n[ERROR] Negotiation error"));
 						 }break;
 	case wxPROTO_CONNERR: {
 							results->SetDefaultStyle(wxTextAttr(*wxRED));
-							results->AppendText("\n[ERROR] Connection error");
+							results->AppendText(wxT("\n[ERROR] Connection error"));
 						 }break;
 	case wxPROTO_INVVAL: {
 							results->SetDefaultStyle(wxTextAttr(*wxRED));
-							results->AppendText("\n[ERROR] Invalid argument");
+							results->AppendText(wxT("\n[ERROR] Invalid argument"));
 						 }break;
 	case wxPROTO_NOFILE: {
 							results->SetDefaultStyle(wxTextAttr(*wxRED));
-							results->AppendText("\n[ERROR] Remote file doesn't exist");
+							results->AppendText(wxT("\n[ERROR] Remote file doesn't exist"));
 						 }break;
 	default:{
 				results->SetDefaultStyle(wxTextAttr(*wxRED));
-				results->AppendText("\n[ERROR] Unknow error");
+				results->AppendText(wxT("\n[ERROR] Unknow error"));
 			}
 
 	}
