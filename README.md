@@ -1,4 +1,4 @@
-DivWork
+DivWork [![Build Status](https://travis-ci.org/AdrianArroyoCalle/divwork.png)] (https://travis-ci.org/AdrianArroyoCalle/divwork)
 =======
 
 DivWork is a utilitary suite free for personal use and little bussiness. DivWork is built with libraries and a GUI (always in wxWidgets, but other libs can also be supported like FLTK or BeAPI).
