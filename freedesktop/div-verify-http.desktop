@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DivVerifyHTTP
+Comment=DivVerifyHTTP, check the state of an remote HTTP server.
+Comment[es]=DivVerifyHTTP, comprueba el estado de un servidor HTTP remoto.
+Exec=DivVerifyHTTP
+Terminal=false
+Type=Application
+Categories=Utilities
