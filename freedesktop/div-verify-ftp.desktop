@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DivVerifyFTP
+Comment=DivVerifyFTP, check the state of an remote FTP server.
+Comment[es]=DivVerifyFTP, comprueba el estado de un servidor FTP remoto.
+Exec=DivVerifyFTP
+Terminal=false
+Type=Application
+Categories=Utilities
