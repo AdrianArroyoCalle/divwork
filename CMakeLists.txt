@@ -26,6 +26,10 @@ SET(DIV_VERIFY_HTTP
 "div-verify-http/app.cpp"
 "div-verify-http/frame.cpp"
 )
+SET(DIV_VERIFY_FTP
+"div-verify-ftp/app.cpp"
+"div-verify-ftp/frame.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
@@ -35,6 +39,7 @@ option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
 option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
 option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
+option (BUILD_DIV_VERIFY_FTP "Build DivVerifyFTP" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -96,6 +101,14 @@ if(BUILD_DIV_VERIFY_HTTP)
 	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/div-verify-http.desktop")
 	SET(EXE_TARGETS ${EXE_TARGETS} DivVerifyHTTP)
 	SET(EXE_DESC ${EXE_DESC} "DivVerifyHTTP")
+endif()
+if(BUILD_DIV_VERIFY_FTP)
+	add_executable(DivVerifyFTP ${DIV_VERIFY_FTP})
+	target_link_libraries(DivVerifyFTP ${COMMON_LIBS})
+	install(TARGETS DivVerifyFTP DESTINATION bin)
+	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/div-verify-ftp.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} DivVerifyFTP)
+	SET(EXE_DESC ${EXE_DESC} "DivVerifyFTP")
 endif()
 #Desktop shourtcouts
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
