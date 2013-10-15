@@ -11,6 +11,9 @@ DivWork comes with these programs:
 * DivIRC
 * DivXMPP
 * DivZip
+* DivTar
+* DivImage
+* DivDraw
 * DivVerifyHTTP
 * DivVNC
 * DivGPG
