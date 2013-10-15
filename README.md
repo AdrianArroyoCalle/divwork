@@ -51,4 +51,9 @@ or
 cpack -G <package>
 ```
 
-where package can be DEB, RPM, TGZ, ZIP or NSIS.
+where package can be DEB, RPM, TGZ, ZIP or NSIS. Optionally if you are on Arch Linux you can run 
+
+``` sh
+makepkg
+sudo pacman -U divwork*.pkg.tar.xz
+```
