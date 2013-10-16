@@ -1,0 +1,5 @@
+divwork (0.1.1) precise; urgency=low
+
+	* First Debian package
+
+ -- Adrian Arroyo Calle <adrian.arroyocalle@gmail.com> Wed, 16 Oct 2013 21:00 +1200

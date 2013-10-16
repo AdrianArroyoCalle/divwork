@@ -1,0 +1,9 @@
+#!/bin/make
+%:
+	dh $@
+override_dh_auto_configure:
+	cmake .
+override_dh_auto_build:
+	make
+override_dh_auto_install:
+	make DESTDIR=${CURDIR}/debian/divwork install
