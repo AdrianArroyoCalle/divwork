@@ -1,9 +1,9 @@
-#!/bin/make
+#!/bin/make -f
 %:
 	dh $@
 override_dh_auto_configure:
-	cmake .
+	cmake . -DCMAKE_INSTALL_PREFIX:PATH=${CURDIR}/debian/divwork/usr
 override_dh_auto_build:
 	make
 override_dh_auto_install:
-	make DESTDIR=${CURDIR}/debian/divwork install
+	make install

@@ -2,13 +2,13 @@ Source: divwork
 Section: utils
 Priority: optional
 Maintainer: Adrian Arroyo Calle <adrian.arroyocalle@gmail.com>
-Build-Depends: debhelper (>= 7), libwxgtk-2.8-dev
+Build-Depends: debhelper (>= 7), libwxgtk2.8-dev
 Standards-Version: 3.9.2
 Homepage: http://github.com/AdrianArroyoCalle/divwork
 
 Architecture: any
 Depends:${shlibs:Depends}
-Version: 0.1.1
+Version: 0.1.1.0
 Description: DivWork
  DivWork is an utilitary suite with some interesting programs
 Package: divwork
