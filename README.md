@@ -13,6 +13,7 @@ DivWork comes with these programs:
 * DivZip
 * DivTar
 * DivImage
+* DivVideo
 * DivDraw
 * DivVerifyHTTP
 * DivVNC
