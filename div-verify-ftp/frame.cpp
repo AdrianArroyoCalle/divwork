@@ -5,7 +5,7 @@
 
 MainFrame::MainFrame() : wxFrame(NULL,wxID_ANY,wxT("DivVerifyFTP"))
 { 
-	this->SetSize(400,300);
+	this->SetSize(400,600);
 	wxPanel* panel=new wxPanel(this);
 	wxStaticText* info=new wxStaticText(panel,wxID_ANY,wxT("Insert a URL, DivVerifyFTP will verfify the server and you can read the metadata"),wxPoint(1,1));
 	wxPanel* direction=new wxPanel(panel);
@@ -13,12 +13,11 @@ MainFrame::MainFrame() : wxFrame(NULL,wxID_ANY,wxT("DivVerifyFTP"))
 	server=new wxTextCtrl(direction,wxID_ANY,wxT(""),wxPoint(50,30),wxSize(200,25));
 	wxButton* check=new wxButton(direction,wxID_ANY,wxT("Verify FTP"),wxPoint(260,30));
 	check->Connect(wxEVT_COMMAND_BUTTON_CLICKED,wxCommandEventHandler(MainFrame::Check),NULL,this);
-	wxPanel* logger=new wxPanel(panel);
-	results=new wxTextCtrl(logger,wxID_ANY,wxT("[INFO] Started DivVerifyFTP"),wxPoint(1,1),wxSize(800,600),wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH2|wxTE_AUTO_URL);
+	results=new wxTextCtrl(panel,wxID_ANY,wxT("[INFO] Started DivVerifyFTP"),wxPoint(1,1),wxSize(400,200),wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH2|wxTE_AUTO_URL);
 	wxBoxSizer* sizer=new wxBoxSizer(wxVERTICAL);
 	sizer->Add(info,1,wxEXPAND);
 	sizer->Add(direction,1,wxEXPAND);
-	sizer->Add(logger,1,wxEXPAND);
+	sizer->Add(results,1,wxEXPAND);
 	panel->SetSizer(sizer);
 	panel->SetAutoLayout(true);
 
@@ -48,4 +47,8 @@ void MainFrame::Check(wxCommandEvent& event)
 			results->AppendText(wxT("\n[ERROR] The file doesn't exist"));
 	}
 	ftp.Close();
+
+	/*int size=results->GetSize().GetHeight();
+	int pos=results->GetScrollPos(wxVERTICAL);
+	results->SetScrollPos(wxVERTICAL, pos - size);*/
 }
