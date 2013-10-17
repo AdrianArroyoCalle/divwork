@@ -1,5 +1,5 @@
 divwork (0.1.1.0) precise; urgency=low
 
- * First Debian package
+  * First Debian package
 
- -- Adrian Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com> Wed, 16 Oct 2013 21:00 +1200
+ -- Adrian Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com> Wed, 16 Oct 2013 21:00:00 +1200
