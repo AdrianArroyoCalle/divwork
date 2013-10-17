@@ -30,6 +30,9 @@ SET(DIV_VERIFY_FTP
 "div-verify-ftp/app.cpp"
 "div-verify-ftp/frame.cpp"
 )
+SET(DIV_VIDEO_SRC
+"div-video/player.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
@@ -40,6 +43,7 @@ option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
 option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
 option (BUILD_DIV_VERIFY_FTP "Build DivVerifyFTP" ON)
+option (BUILD_DIV_VIDEO "Build DivVideo" OFF)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -111,6 +115,21 @@ if(BUILD_DIV_VERIFY_FTP)
 	SET(EXE_TARGETS ${EXE_TARGETS} DivVerifyFTP)
 	SET(EXE_DESC ${EXE_DESC} "DivVerifyFTP")
 	SET(ICON64_FILES ${ICON64_FILES} "freedesktop/DivVerifyFTP.png")
+endif()
+if(BUILD_DIV_VIDEO)
+	find_package(LIBVLC)
+	find_package(GTK2)
+	include_directories(${LIBVLC_INCLUDE_DIR})
+	include_directories(${GTK2_INCLUDE_DIRS})
+	add_executable(DivVideo ${DIV_VIDEO_SRC})
+	target_link_libraries(DivVideo ${COMMON_LIBS})
+	target_link_libraries(DivVideo ${LIBVLC_LIBRARY})
+	target_link_libraries(DivVideo ${GTK2_LIBRARIES})
+	install(TARGETS DivVideo DESTINATION bin)
+	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/div-video.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} DivVideo)
+	SET(EXE_DESC ${EXE_DESC} "DivVideo")
+	SET(ICON64_FILES ${ICON64_FILES} "freedesktop/div-video.png")
 endif()
 #Desktop shourtcouts
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")

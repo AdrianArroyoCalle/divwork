@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DivVideo
+Comment=DivVideo, play music and videos in a minimal interface.
+Comment[es]=DivVideo, pon música y vídeos en una interfaz minimalista.
+Exec=DivVideo
+Icon=div-video
+Terminal=false
+Type=Application
+Categories=Utilities
