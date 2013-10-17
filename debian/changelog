@@ -1,5 +1,6 @@
-divwork (0.1.1.2) precise; urgency=low
+divwork (0.1.1.3) precise; urgency=low
 
    * First debian package
+   * Added DivVideo
 
  -- Adrián Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com>  Mon, 22 Mar 2010 00:37:31 +0100

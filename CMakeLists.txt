@@ -43,7 +43,7 @@ option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
 option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
 option (BUILD_DIV_VERIFY_FTP "Build DivVerifyFTP" ON)
-option (BUILD_DIV_VIDEO "Build DivVideo" OFF)
+option (BUILD_DIV_VIDEO "Build DivVideo" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")

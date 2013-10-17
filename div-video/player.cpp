@@ -2,6 +2,7 @@
 
 /* License WTFPL http://sam.zoy.org/wtfpl/ */
 /* Written by Vincent Schüßler */
+/* Adapted for DivWork by Adrián Arroyo */
 
 #include <wx/wx.h>
 #include <wx/filename.h>
@@ -256,7 +257,7 @@ void OnEndReached_VLC(const libvlc_event_t *event, void *data) {
 }
 
 bool MyApp::OnInit() {
-    mainWindow = new MainWindow(wxT("wxWidgets libVLC demo"));
+    mainWindow = new MainWindow(wxT("DivVideo"));
     return true;
 }
 

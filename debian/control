@@ -2,13 +2,13 @@ Source: divwork
 Section: utils
 Priority: optional
 Maintainer: Adrian Arroyo Calle <adrian.arroyocalle@gmail.com>
-Build-Depends: debhelper (>= 7), libwxgtk2.8-dev, cmake, binutils
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7), libwxgtk2.8-dev, cmake, binutils, libvlc-dev, libgdk-pixbuf2.0-dev
+Standards-Version: 3.9.3
 Homepage: http://github.com/AdrianArroyoCalle/divwork
 
 Architecture: any
 Depends:${shlibs:Depends}
-Version: 0.1.1.2
+Version: 0.1.1.3
 Description: DivWork
  DivWork is an utilitary suite with some interesting programs
 Package: divwork
