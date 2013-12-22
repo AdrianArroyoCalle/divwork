@@ -10,7 +10,7 @@ Release: 1
 License: GPLv2
 Group: Applications/Internet
 Source0: http://github.com/AdrianArroyoCalle/divwork/archive/master.tar.gz
-Requires: cmake
+BuildRequires: cmake
 URL: http://github.com/AdrianArroyoCalle/divwork
 %description
 This package is a collection of some programs that might be util
