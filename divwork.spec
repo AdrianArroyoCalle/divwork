@@ -17,7 +17,7 @@ This package is a collection of some programs that might be util
 %prep
 %setup -qn divwork-master
 %build
-cmake . -DBUILD_DIV_VIDEO=OFF
+cmake . -DBUILD_DIV_VIDEO=OFF -DCMAKE_INSTALL_PREFIX=/usr
 make
 %install
 make DESTDIR=%{buildroot} install
