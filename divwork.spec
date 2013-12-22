@@ -23,19 +23,9 @@ make
 make DESTDIR=%{buildroot} install
 
 %files
-/usr/local/bin/AgendaCorreos
-/usr/local/bin/DivVerifyFTP
-/usr/local/bin/DivVerifyHTTP
-/usr/local/bin/DivelWrite
-/usr/local/bin/Divel_Calendar
-/usr/local/share/applications/agenda-correos.desktop
-/usr/local/share/applications/div-verify-ftp.desktop
-/usr/local/share/applications/div-verify-http.desktop
-/usr/local/share/applications/divel-calendar.desktop
-/usr/local/share/applications/divel-write.desktop
-/usr/local/share/icons/hicolor/64x64/apps/DivVerifyFTP.png
-/usr/local/share/icons/hicolor/64x64/apps/DivVerifyHTTP.png
-/usr/local/share/icons/hicolor/64x64/apps/divel-calendar.png
+/usr/local/bin
+/usr/local/share/applications
+/usr/local/share/icons/hicolor/64x64/apps
 %changelog
 * Wed Oct 16 2013 Adrian Arroyo Calle <adrian.arroyocalle@gmail.com>
 - First SPEC file
