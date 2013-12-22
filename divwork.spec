@@ -10,7 +10,9 @@ Release: 1
 License: GPLv2
 Group: Applications/Internet
 Source0: http://github.com/AdrianArroyoCalle/divwork/archive/master.tar.gz
-BuildRequires: cmake
+%if 0%{?suse version}
+BuildRequires: cmake gcc-c++ libstdc++-devel wxWidgets-devel libwx_gtk2u_core-2_8-0-wxcontainer
+%endif
 URL: http://github.com/AdrianArroyoCalle/divwork
 %description
 This package is a collection of some programs that might be util
