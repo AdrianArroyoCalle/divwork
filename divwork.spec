@@ -21,6 +21,7 @@ cmake . -DBUILD_DIV_VIDEO=OFF -DCMAKE_INSTALL_PREFIX=/usr
 make
 %install
 make DESTDIR=%{buildroot} install
+%suse_update_desktop_file %{buildroot}/usr/share/applications/*.desktop Utility
 
 %files
 /usr/local/bin
