@@ -34,7 +34,7 @@ make
 %install
 make DESTDIR=%{buildroot} install
 %if 0%{?suse_version}
-rm ${buildroot}/usr/share/applications/*.desktop
+rm %{buildroot}/usr/share/applications/*.desktop
 
 %suse_update_desktop_file -c divel-calendar "Divel Calendar" "Divel Calendar" Divel_Calendar divel-calendar Utility
 %suse_update_desktop_file -c agenda-correos "Agenda de Correos" "Agenda de Correos" AgendaCorreos divel-calendar Utility
