@@ -34,11 +34,13 @@ make
 %install
 make DESTDIR=%{buildroot} install
 %if 0%{?suse_version}
-%suse_update_desktop_file -r %{buildroot}/usr/share/applications/divel-calendar.desktop Utility
-%suse_update_desktop_file -r %{buildroot}/usr/share/applications/agenda-correos.desktop Utility
-%suse_update_desktop_file -r %{buildroot}/usr/share/applications/div-verify-ftp.desktop Utility
-%suse_update_desktop_file -r %{buildroot}/usr/share/applications/div-verify-http.desktop Utility
-%suse_update_desktop_file -r %{buildroot}/usr/share/applications/divel-write.desktop Utility
+rm ${buildroot}/usr/share/applications/*.desktop
+
+%suse_update_desktop_file -c divel-calendar "Divel Calendar" "Divel Calendar" Divel_Calendar divel-calendar Utility
+%suse_update_desktop_file -c agenda-correos "Agenda de Correos" "Agenda de Correos" AgendaCorreos divel-calendar Utility
+%suse_update_desktop_file -c divel-write "Divel Write" "Divel Write" DivelWrite divel-calendar Utility
+%suse_update_desktop_file -c div-verify-ftp "DivVerifyFTP" "DivVerifyFTP" DivVerifyFTP div-verify-ftp Utility
+%suse_update_desktop_file -c div-verify-http "DivVerifyHTTP" "DivVerifyHTTP" DivVerifyHTTP div-verify-http Utility
 %endif
 %files
 /usr/bin
