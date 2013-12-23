@@ -41,11 +41,11 @@ rm %{buildroot}/usr/share/applications/*.desktop
 %suse_update_desktop_file -c agenda-correos "Agenda de Correos" "Agenda de Correos" AgendaCorreos divel-calendar Utility
 %suse_update_desktop_file -r agenda-correos Utility Telephony
 %suse_update_desktop_file -c divel-write "Divel Write" "Divel Write" DivelWrite divel-calendar Utility
-%suse_update_desktop_file -r divel-calendar Utility TextEditor
+%suse_update_desktop_file -r divel-write Utility TextEditor
 %suse_update_desktop_file -c div-verify-ftp "DivVerifyFTP" "DivVerifyFTP" DivVerifyFTP DivVerifyFTP Utility
-%suse_update_desktop_file -r divel-calendar Utility WebUtility
+%suse_update_desktop_file -r div-verify-ftp Utility WebUtility
 %suse_update_desktop_file -c div-verify-http "DivVerifyHTTP" "DivVerifyHTTP" DivVerifyHTTP DivVerifyHTTP Utility
-%suse_update_desktop_file -r divel-calendar Utility WebUtility
+%suse_update_desktop_file -r div-verify-http Utility WebUtility
 %endif
 %files
 /usr/bin
