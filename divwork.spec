@@ -34,15 +34,16 @@ make
 %install
 make DESTDIR=%{buildroot} install
 %if 0%{?suse_version}
-%suse_update_desktop_file -r div-video Utility
-%suse_update_desktop_file -r div-verify-ftp Utility
-%suse_update_desktop_file -r div-verify-http Utility
-%suse_update_desktop_file -r divel-write Utility
+%suse_update_desktop_file -r %{build_root}/usr/share/applications/divel-calendar.desktop Utility
+%suse_update_desktop_file -r %{build_root}/usr/share/applications/agenda-correos.desktop Utility
+%suse_update_desktop_file -r %{build_root}/usr/share/applications/div-verify-ftp.desktop Utility
+%suse_update_desktop_file -r %{build_root}/usr/share/applications/div-verify-http.desktop Utility
+%suse_update_desktop_file -r %{build_root}/usr/share/applications/divel-write.desktop Utility
 %endif
 %files
-/usr/local/bin
-/usr/local/share/applications
-/usr/local/share/icons/hicolor/64x64/apps
+/usr/bin
+/usr/share/applications
+/usr/share/icons/hicolor/64x64/apps
 %changelog
 * Wed Oct 16 2013 Adrian Arroyo Calle <adrian.arroyocalle@gmail.com>
 - First SPEC file
