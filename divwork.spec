@@ -33,8 +33,12 @@ cmake . -DBUILD_DIV_VIDEO=OFF -DCMAKE_INSTALL_PREFIX=/usr
 make
 %install
 make DESTDIR=%{buildroot} install
-%suse_update_desktop_file %{buildroot}/usr/share/applications/*.desktop Utility
-
+%if 0%{?suse_version}
+%suse_update_desktop_file -r div-video Utility
+%suse_update_desktop_file -r div-verify-ftp Utility
+%suse_update_desktop_file -r div-verify-http Utility
+%suse_update_desktop_file -r divel-write Utility
+%endif
 %files
 /usr/local/bin
 /usr/local/share/applications
