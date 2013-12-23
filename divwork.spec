@@ -10,7 +10,7 @@ Release: 1
 License: GPLv2
 Group: Applications/Internet
 Source0: http://github.com/AdrianArroyoCalle/divwork/archive/master.tar.gz
-BuildRequires: cmake gcc-c++ libstdc++-devel wxWidgets-devel libwx_gtk2u_core-2_8-0-wxcontainer
+BuildRequires: cmake gcc-c++ libstdc++-devel wxWidgets-devel libwx_gtk2u_core-2_8-0-wxcontainer update-desktop-files
 Requires: xdg-utils libwx_gtk2u_core-2_8-0-wxcontainer
 URL: http://github.com/AdrianArroyoCalle/divwork
 %description
