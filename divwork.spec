@@ -39,8 +39,8 @@ rm %{buildroot}/usr/share/applications/*.desktop
 %suse_update_desktop_file -c divel-calendar "Divel Calendar" "Divel Calendar" Divel_Calendar divel-calendar Utility
 %suse_update_desktop_file -c agenda-correos "Agenda de Correos" "Agenda de Correos" AgendaCorreos divel-calendar Utility
 %suse_update_desktop_file -c divel-write "Divel Write" "Divel Write" DivelWrite divel-calendar Utility
-%suse_update_desktop_file -c div-verify-ftp "DivVerifyFTP" "DivVerifyFTP" DivVerifyFTP div-verify-ftp Utility
-%suse_update_desktop_file -c div-verify-http "DivVerifyHTTP" "DivVerifyHTTP" DivVerifyHTTP div-verify-http Utility
+%suse_update_desktop_file -c div-verify-ftp "DivVerifyFTP" "DivVerifyFTP" DivVerifyFTP DivVerifyFTP Utility
+%suse_update_desktop_file -c div-verify-http "DivVerifyHTTP" "DivVerifyHTTP" DivVerifyHTTP DivVerifyHTTP Utility
 %endif
 %files
 /usr/bin
