@@ -480,7 +480,7 @@ void Calendario::Options(wxCommandEvent& event)
 	wxShell(wxString::Format(_("%s\\Divel\\Calendar\\conf.cfg"),getenv("appdata"))); //GEDIT en LINUX
 #else
 	wxShell(wxString::Format(_("gedit %s/Divel/Calendar/conf.cfg"),getenv("HOME")));
-#endif WIN32
+#endif /* WIN32 */
 }
 
 void Calendario::DivelChat(wxCommandEvent& event)
