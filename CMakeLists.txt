@@ -33,6 +33,14 @@ SET(DIV_VERIFY_FTP
 SET(DIV_VIDEO_SRC
 "div-video/player.cpp"
 )
+SET(MONOPOLY_SRC
+"monopoly/MonopolyApp.cpp"
+"monopoly/MonopolyFrm.cpp"
+)
+SET(MONOPOLY_HELP_SRC
+"monopoly/AyudaApp.cpp"
+"monopoly/AyudaFrm.cpp"
+)
 #Compiling options
 # should we use our stupid functions?
 option (USE_LIBRANDOM 
@@ -44,6 +52,8 @@ option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
 option (BUILD_DIV_VERIFY_FTP "Build DivVerifyFTP" ON)
 option (BUILD_DIV_VIDEO "Build DivVideo" ON)
+option (BUILD_MONOPOLY "Build Monopoly" ON)
+option (BUILD_MONOPOLY_HELP "Build Monopoly Help" ON)
 #Custom builds
 if (USE_LIBRANDOM)
 	include_directories("${PROJECT_BINARY_DIR}/librandom")
@@ -130,6 +140,15 @@ if(BUILD_DIV_VIDEO)
 	SET(EXE_TARGETS ${EXE_TARGETS} DivVideo)
 	SET(EXE_DESC ${EXE_DESC} "DivVideo")
 	SET(ICON64_FILES ${ICON64_FILES} "freedesktop/div-video.png")
+endif()
+if(BUILD_MONOPOLY)
+	add_executable(Monopoly ${MONOPOLY_SRC})
+	target_link_libraries(Monopoly ${COMMON_LIBS})
+	install(TARGETS Monopoly DESTINATION bin)
+	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/monopoly.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} Monopoly)
+	SET(EXE_DESC ${EXE_DESC} "Monopoly")
+	SET(ICON64_FILES ${ICON64_FILES} "freedesktop/monopoly.png")
 endif()
 #Desktop shourtcouts
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
