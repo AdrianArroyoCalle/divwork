@@ -1,0 +1,10 @@
+﻿[Desktop Entry]
+Encoding=UTF-8
+Name=Monopoly
+Comment=Monopoly for two players
+Comment[es]=Monopoly para dos jugadores
+Exec=Monopoly
+Icon=monopoly
+Terminal=false
+Type=Application
+Categories=Game;StrategyGame
