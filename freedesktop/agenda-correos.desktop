@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=Agenda de Correos
-Comment=Agenda de Correos is a simply and fast contact manager.
-Comment[es]=Agenda de Correos es un rápido y simple gestor de contactos.
-Exec=AgendaCorreos
-Terminal=false
-Type=Application
-Categories=Utility

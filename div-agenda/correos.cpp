@@ -207,11 +207,11 @@ bool MyApp::OnInit()
     // few common command-line options but it could be do more in the future
     if ( !wxApp::OnInit() )
         return false;
-	SetAppName(wxT("Agenda de Correos de Divel SO"));
-	SetVendorName(wxT("Adrian Arroyo Calle para Divel"));
+	SetAppName(wxT("DivAgenda"));
+	SetVendorName(wxT("Adrian Arroyo Calle"));
 
     // create the main application window
-    MyFrame *frame = new MyFrame(wxT("Agenda de Correos de Divel SO"));
+    MyFrame *frame = new MyFrame(wxT("DivAgenda"));
 
     // and show it (the frames, unlike simple controls, are not shown when
     // created initially)
@@ -234,7 +234,7 @@ bool MyApp::OnInit()
 	string datosGenerales[4];
 	//entornoLectura=entornoString+"/.divel/Datos/Correos.dat";
 	ifstream registro(entornoFinal,ifstream::in);
-	if(!registro){wxMessageBox(wxT("Error al abrir el archivo de registro: Error 201"),wxT("Error 201"),wxICON_ERROR|wxOK);
+	if(!registro){wxMessageBox(wxT("Error al abrir el archivo de registro: WARNING 201\nSe procedera a la creacion de otro"),wxT("WARNING 201"),wxICON_WARNING|wxOK);
 	system("mkdir -p $HOME/.divel/Datos/");
 	ofstream registroNuevo; registroNuevo.open(entornoFinal,ofstream::out);
 	if(!registroNuevo){wxMessageBox(wxT("Ha ocurrido un error al crear el archivo Correos.dat, intentelo manualmente"));}
@@ -286,7 +286,7 @@ MyFrame::MyFrame(const wxString& title)
 	//fileMenu->Append(ID_ELIMINAR, "&Eliminar","Eliminar un registro");
 	ver->Append(ID_ANTERIOR, wxT("An&terior"),wxT("Ir una pagina atras"));
 	ver->Append(ID_SIGUIENTE, wxT("&Siguiente"),wxT("Ir una pagina adelante"));
-    fileMenu->Append(Minimal_Quit, wxT("&Salir\tAlt-X"), wxT("Cierra Agenda de Correos"));
+    fileMenu->Append(Minimal_Quit, wxT("&Salir\tAlt-X"), wxT("Cierra DivAgenda"));
 
     // now append the freshly created menu to the menu bar...
     wxMenuBar *menuBar = new wxMenuBar();
@@ -387,7 +387,7 @@ MyFrame::MyFrame(const wxString& title)
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)
     CreateStatusBar(2);
-    SetStatusText(wxT("Agenda de Correos 1.0"));
+    SetStatusText(wxT("DivAgenda 1.1"));
 #endif // wxUSE_STATUSBAR
 
 }
@@ -401,13 +401,13 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
     wxMessageBox(wxString::Format
                  (
-                    wxT("Agenda de Correos de Divel SO\n")
+                    wxT("DivAgenda\n")
                     wxT("\n")
                     wxT("Organiza tus contactos desde aqui\n")
                     wxT("\n")
-					wxT("Para mas productos visite:\n sites.google.com/site/divelmedia")
+					wxT("Para mas productos visite:\n http://github.com/AdrianArroyoCalle/divwork")
                  ),
-                 wxT("Acerca de Agenda de Correos de Divel SO"),
+                 wxT("Acerca de DivAgenda"),
                  wxOK | wxICON_INFORMATION,
                  this);
 	primero->SetLabel(LINEA[lectura]);lectura++;
@@ -576,7 +576,7 @@ void MyFrame::OnAgregar(wxCommandEvent& event)
 
 void MyFrame::OnSiguiente(wxCommandEvent& event)
 {
-	if(pagina==12){wxMessageBox(wxT("Esta version de Agenda de Correos no acepta mas paginas, lo sentimos e intenta actualizar a la siguiente version"), wxT("Fin de programa"), wxICON_WARNING|wxOK);}else{
+	if(pagina==12){wxMessageBox(wxT("Esta version de DivAgenda no acepta mas paginas, lo sentimos e intenta actualizar a la siguiente version"), wxT("Fin de programa"), wxICON_WARNING|wxOK);}else{
 	pagina++;
 	switch(pagina){
 	case 1: lectura=60;break;
@@ -656,7 +656,7 @@ void MyFrame::OnSiguiente(wxCommandEvent& event)
 
 void MyFrame::OnAnterior(wxCommandEvent& event)
 {
-if(pagina==1){wxMessageBox(wxT("Esta version de Agenda de Correos no acepta mas paginas, lo sentimos e intenta actualizar a la siguiente version"), wxT("Inicio de programa"), wxICON_WARNING|wxOK);}else{
+if(pagina==1){wxMessageBox(wxT("Esta version de DivAgenda no acepta mas paginas, lo sentimos e intenta actualizar a la siguiente version"), wxT("Inicio de programa"), wxICON_WARNING|wxOK);}else{
 	pagina--;
 	switch(pagina){
 	case 1: lectura=0;break;

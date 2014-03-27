@@ -12,8 +12,8 @@ SET(DIVEL_CALENDAR_SRC
 "divel-calendar/Divel Calendar.cpp"
 "divel-calendar/StdAfx.cpp"
 )
-SET(AGENDA_CORREOS_SRC
-"agenda-correos/correos.cpp"
+SET(DIV_AGENDA_SRC
+"div-agenda/correos.cpp"
 )
 SET(DIV_VNC_SRC
 "div-vnc/app.cpp"
@@ -46,7 +46,7 @@ SET(MONOPOLY_HELP_SRC
 option (USE_LIBRANDOM 
         "Library example implementation" ON)
 option (BUILD_DIVELCALENDAR "Build Divel Calendar" ON)
-option (BUILD_AGENDACORREOS "Build Agenda de Correos" ON)
+option (BUILD_DIV_AGENDA "Build DivAgenda" ON)
 option (BUILD_DIV_VNC "Build DivVNC (broked)" OFF)
 option (BUILD_DIVEL_WRITE "Build Divel Write" ON)
 option (BUILD_DIV_VERIFY_HTTP "Build DivVerifyHTTP" ON)
@@ -85,13 +85,13 @@ if(BUILD_DIVELCALENDAR)
 	SET(EXE_TARGETS ${EXE_TARGETS} Divel_Calendar)
 	SET(EXE_DESC ${EXE_DESC} "Divel Calendar")
 endif()
-if(BUILD_AGENDACORREOS)
-	add_executable(AgendaCorreos ${AGENDA_CORREOS_SRC})
-	target_link_libraries(AgendaCorreos ${COMMON_LIBS})
-	install(TARGETS AgendaCorreos DESTINATION bin)
-	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/agenda-correos.desktop")
-	SET(EXE_TARGETS ${EXE_TARGETS} AgendaCorreos)
-	SET(EXE_DESC ${EXE_DESC} "Agenda de Correos")
+if(BUILD_DIV_AGENDA)
+	add_executable(DivAgenda ${DIV_AGENDA_SRC})
+	target_link_libraries(DivAgenda ${COMMON_LIBS})
+	install(TARGETS DivAgenda DESTINATION bin)
+	SET(DESKTOP_FILES ${DESKTOP_FILES} "freedesktop/div-agenda.desktop")
+	SET(EXE_TARGETS ${EXE_TARGETS} DivAgenda)
+	SET(EXE_DESC ${EXE_DESC} "DivAgenda")
 endif()
 if(BUILD_DIV_VNC)
 	find_package(LIBVNCCLIENT REQUIRED)

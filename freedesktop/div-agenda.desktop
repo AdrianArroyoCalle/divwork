@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DivAgenda
+Comment=DivAgenda is a simply and fast contact manager.
+Comment[es]=DivAgenda es un rápido y simple gestor de contactos.
+Exec=DivAgenda
+Terminal=false
+Type=Application
+Categories=Utility
